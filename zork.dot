@@ -8,6 +8,7 @@ digraph zork {
 
     behind_house -> south_of_house [label=" south"];
     behind_house -> north_of_house [label=" north"];
+    behind_house -> kitchen [label=" east"];
 
     south_of_house -> west_of_house [label=" west"];
     south_of_house -> behind_house [label=" east"];
@@ -37,4 +38,73 @@ digraph zork {
 
     forest_v -> canyon_view [label=" southeast"];
     forest_v -> forest_vi [label=" south"];
+
+    kitchen -> behind_house [label=" west"];
+    kitchen -> living_room [label=" east"];
+    kitchen -> attic [label=" up"];
+
+    living_room -> kitchen [label=" west"];
+    living_room -> cellar [label=" down"];
+
+    attic -> kitchen [label=" down"];
+
+    cellar -> west_of_chasm [label=" south"];
+    cellar -> troll_room [label=" east"];
+
+    west_of_chasm -> gallery [label=" south"];
+    west_of_chasm -> cellar [label=" west"];
+    west_of_chasm -> north_south_crawlway [label=" north"];
+
+    gallery -> studio [label=" south"];
+    gallery -> bank_entrance [label=" west"];
+
+    bank_entrance -> gallery [label=" south"];
+    bank_entrance -> east_teller_room [label=" northeast"];
+    bank_entrance -> west_teller_room [label=" northwest"];
+
+    east_teller_room -> bank_entrance [label=" south"];
+    east_teller_room -> safety_depository [label=" east"];
+
+    safety_depository -> east_teller_room [label=" east"];
+    safety_depository -> chairmans_office [label=" south"];
+    safety_depository -> west_teller_room [label=" west"];
+
+    chairmans_office -> safety_depository [label=" north"];
+
+    west_teller_room -> bank_entrance [label=" south"];
+    west_teller_room -> safety_depository [label=" west"];
+    west_teller_room -> viewing_room [label=" north"];
+
+    viewing_room -> bank_entrance [label=" south"];
+
+    studio -> gallery [label=" northwest"];
+    studio -> north_south_crawlway [label=" north"];
+
+    north_south_crawlway -> studio [label=" south"];
+    north_south_crawlway -> west_of_chasm [label=" north"];
+    north_south_crawlway -> troll_room [label=" east"];
+
+    troll_room -> cellar [label=" west"];
+    troll_room -> north_south_crawlway [label=" east"];
+    troll_room -> maze [label=" south"];
+    troll_room -> east_west_passageway [label=" north"];
+
+    east_west_passageway -> troll_room [label=" west"];
+    east_west_passageway -> round_room [label=" east"];
+    east_west_passageway -> deep_ravine [label=" down"];
+
+    deep_ravine -> east_west_passageway [label=" south"];
+
+    round_room -> engraving_cave
+
+    engraving_cave -> round_room [label=" north"];
+    engraving_cave -> riddle_room [label=" southeast"];
+
+    riddle_room -> engraving_cave [label=" down"];
+    ridde_room -> pearl_room [label=" east"];
+
+    pearl_room -> riddle_room [label=" west"];
+    pearl_room -> circular_room [label=" east"];
+
+    circular_room -> pearl_room [label=" west"];
 }
