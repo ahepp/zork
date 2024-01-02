@@ -171,10 +171,10 @@ digraph zork {
     pearl_room -> circular_room [label=" east"];
 
     circular_room -> pearl_room [label=" west"];
-    circular_room -> top_of_well [label=" water"];
+    circular_room -> top_of_well [label=" bucket (water)"];
 
     top_of_well -> tea_room [label=" east"];
-    top_of_well -> circular_room [label=" bucket"];
+    top_of_well -> circular_room [label=" bucket (no water)"];
 
     tea_room -> top_of_well [label=" west"];
     tea_room -> pool_room [label=" east (small)"];
@@ -237,7 +237,7 @@ digraph zork {
     rocky_crawl -> dome_room [label=" east"];
 
     dome_room -> rocky_crawl [label=" east"];
-    dome_room -> torch_room [label=" down"];
+    dome_room -> torch_room [label=" down (rope)"];
 
     dam_lobby -> maintenance_room [label=" north, east"];
     dam_lobby -> dam [label=" south"];
