@@ -21,12 +21,14 @@ digraph zork {
     forest_ii -> up_a_tree [label=" up"];
     forest_ii -> north_of_house [label=" west"];
     forest_ii -> clearing [label=" south"];
+    forest_ii -> forest_iii [label=" north"];
 
     up_a_tree -> forest_ii [label=" down"];
 
     forest_iii -> south_of_house [label=" north"];
     forest_iii -> clearing [label=" east"];
     forest_iii -> forest_iv [label=" south"];
+    forest_iii -> forest_i [label=" west"];
 
     clearing -> clearing [label=" north, east"];
     clearing -> forest_ii [label=" west"];
@@ -89,7 +91,7 @@ digraph zork {
 
     troll_room -> cellar [label=" west"];
     troll_room -> north_south_crawlway [label=" east"];
-    troll_room -> maze [label=" south"];
+    troll_room -> maze_i [label=" south"];
     troll_room -> east_west_passageway [label=" north"];
 
     east_west_passageway -> troll_room [label=" west"];
@@ -98,10 +100,66 @@ digraph zork {
 
     deep_ravine -> east_west_passageway [label=" south"];
     deep_ravine -> reservoir_south [label=" down"];
+    deep_ravine -> chasm [label=" east"];
+    deep_ravine -> rocky_crawl [label=" west"];
 
     round_room -> engraving_cave
     round_room -> north_south_passage
     round_room -> deep_canyon
+    round_room -> maze_i
+    round_room -> grail_room
+    round_room -> winding_passage
+
+
+    grail_room -> temple [label=" up"];
+    grail_room -> narrow_crallway [label=" east"];
+    grail_room -> round_room [label=" west"];
+
+    narrow_crallway -> grail_room [label=" north"];
+    narrow_crallway -> mirror_room [label=" southwest"];
+    narrow_crallway -> cave [label=" south"];
+
+    cave -> mirror_room [label=" west"];
+    cave -> narrow_crallway [label=" north"];
+    cave -> entrance_to_hades [label=" down"];
+
+    entrance_to_hades -> cave [label=" up"];
+
+    mirror_room -> narrow_crallway [label=" north"];
+    mirror_room -> winding_passage [label=" west"];
+    mirror_room -> cave [label=" east"];
+
+    winding_passage -> mirror_room [label=" east"];
+
+    temple -> grail_room [label=" west"];
+    temple -> altar [label=" east"];
+
+    altar -> temple [label=" west"];
+    altar -> forest_x [label=" pray"];
+
+    maze_i -> maze_i [label=" north"]; // wire
+    maze_i -> maze_iii [label=" east"];
+    maze_i -> maze_ii [label=" south"];
+    maze_i -> troll_room [label=" west"];
+
+    maze_ii -> maze_iii [label=" north"]; // bottle
+    maze_ii -> maze_i [label=" south"];
+    maze_ii -> maze_iv [label=" east"];
+
+    maze_iii -> maze_i [label=" north"]; // lantern
+    maze_iii -> dead_end_iii [label=" east"];
+    maze_iii -> maze_iv [label=" west"];
+
+    maze_iv -> maze_iii [label=" north"]; // coins
+    maze_iv -> maze_ii [label=" west"];
+    maze_iv -> maze_skeleton [label=" up"];
+
+    maze_skeleton -> maze_iv [label=" north"];
+    maze_skeleton -> dead_end_iv [label=" east"];
+
+    dead_end_iii -> maze_iii [label=" south"];
+
+    dead_end_iv -> maze_skeleton [label=" west"];
 
     engraving_cave -> round_room [label=" north"];
     engraving_cave -> riddle_room [label=" southeast"];
@@ -116,6 +174,7 @@ digraph zork {
     circular_room -> top_of_well [label=" water"];
 
     top_of_well -> tea_room [label=" east"];
+    top_of_well -> circular_room [label=" bucket"];
 
     tea_room -> top_of_well [label=" west"];
     tea_room -> pool_room [label=" east (small)"];
@@ -133,6 +192,10 @@ digraph zork {
 
     north_south_passage -> loud_room [label=" northeast"];
     north_south_passage -> round_room [label=" south"];
+    north_south_passage -> chasm [label=" north"];
+
+    chasm -> deep_ravine [label=" south"];
+    chasm -> north_south_passage [label=" east"];
 
     loud_room -> damp_cave [label=" up"];
     loud_room -> north_south_passage [label=" west"];
@@ -140,6 +203,7 @@ digraph zork {
 
     damp_cave -> loud_room [label=" south"];
     damp_cave -> dam [label=" east"];
+    damp_cave -> unknown [label=" west, small"];
 
     dam -> dam_lobby [label=" north"];
     dam -> damp_cave [label=" east"];
@@ -159,16 +223,21 @@ digraph zork {
     stream_view -> reservoir_south [label=" east"];
     stream_view -> glacier_room [label=" north"];
     
-    glacier_room -> unkown_vi [label=" north"];
+    glacier_room -> stream_view [label=" north"];
     glacier_room -> egyptian_room [label=" east"];
 
-    egyptian_room -> unknown_vii [label=" up"];
+    egyptian_room -> glacier_room [label=" up"];
     egyptian_room -> volcano_view [label=" south"];
     egyptian_room -> rocky_crawl [label=" east"];
 
     volcano_view -> egyptian_room [label=" east"];
 
     rocky_crawl -> deep_ravine [label=" west"];
+    rocky_crawl -> egyptian_room [label=" northwest"];
+    rocky_crawl -> dome_room [label=" east"];
+
+    dome_room -> rocky_crawl [label=" east"];
+    dome_room -> torch_room [label=" down"];
 
     dam_lobby -> maintenance_room [label=" north, east"];
     dam_lobby -> dam [label=" south"];
