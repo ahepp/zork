@@ -97,17 +97,95 @@ digraph zork {
     east_west_passageway -> deep_ravine [label=" down"];
 
     deep_ravine -> east_west_passageway [label=" south"];
+    deep_ravine -> reservoir_south [label=" down"];
 
     round_room -> engraving_cave
+    round_room -> north_south_passage
+    round_room -> deep_canyon
 
     engraving_cave -> round_room [label=" north"];
     engraving_cave -> riddle_room [label=" southeast"];
 
     riddle_room -> engraving_cave [label=" down"];
-    ridde_room -> pearl_room [label=" east"];
+    riddle_room -> pearl_room [label=" east"];
 
     pearl_room -> riddle_room [label=" west"];
     pearl_room -> circular_room [label=" east"];
 
     circular_room -> pearl_room [label=" west"];
+    circular_room -> top_of_well [label=" water"];
+
+    top_of_well -> tea_room [label=" east"];
+
+    tea_room -> top_of_well [label=" west"];
+    tea_room -> pool_room [label=" east (small)"];
+    tea_room -> low_room [label=" northwest"];
+
+    pool_room -> tea_room [label=" west"];
+
+    low_room -> tea_room [label=" southeast"];
+    low_room -> machine_room [label=" east"];
+
+    machine_room -> low_room [label=" west"];
+    machine_room -> dingy_closet [label=" south"];
+
+    dingy_closet -> machine_room [label=" north"];
+
+    north_south_passage -> loud_room [label=" northeast"];
+    north_south_passage -> round_room [label=" south"];
+
+    loud_room -> damp_cave [label=" up"];
+    loud_room -> north_south_passage [label=" west"];
+    loud_room -> ancient_chasm [label=" east"];
+
+    damp_cave -> loud_room [label=" south"];
+    damp_cave -> dam [label=" east"];
+
+    dam -> dam_lobby [label=" north"];
+    dam -> damp_cave [label=" east"];
+    dam -> dam_base [label=" down"];
+    dam -> deep_canyon [label=" south"];
+
+    dam_base -> dam [label=" up, north"];
+
+    deep_canyon -> reservoir_south [label=" northwest"];
+    deep_canyon -> round_room [label=" south"];
+    deep_canyon -> dam [label=" east"];
+
+    reservoir_south -> deep_canyon [label=" up"];
+    reservoir_south -> deep_ravine [label=" south"];
+    reservoir_south -> stream_view [label=" west"];
+
+    stream_view -> reservoir_south [label=" east"];
+    stream_view -> glacier_room [label=" north"];
+    
+    glacier_room -> unkown_vi [label=" north"];
+    glacier_room -> egyptian_room [label=" east"];
+
+    egyptian_room -> unknown_vii [label=" up"];
+    egyptian_room -> volcano_view [label=" south"];
+    egyptian_room -> rocky_crawl [label=" east"];
+
+    volcano_view -> egyptian_room [label=" east"];
+
+    rocky_crawl -> deep_ravine [label=" west"];
+
+    dam_lobby -> maintenance_room [label=" north, east"];
+    dam_lobby -> dam [label=" south"];
+
+    maintenance_room -> dam_lobby [label=" south, west"];
+
+    ancient_chasm -> dead_end_i [label=" west"];
+    ancient_chasm -> small_cave [label=" east"];
+    ancient_chasm -> loud_room [label=" south"];
+    ancient_chasm -> dead_end_ii [label=" north"];
+
+    small_cave -> ancient_chasm [label=" northwest"];
+    small_cave -> rocky_shore [label=" south"];
+
+    rocky_shore -> small_cave [label=" northwest"];
+
+    dead_end_i -> ancient_chasm [label=" east"];
+
+    dead_end_ii -> ancient_chasm [label=" southwest"];
 }
