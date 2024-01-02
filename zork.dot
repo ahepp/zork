@@ -1,2 +1,40 @@
 digraph zork {
+    west_of_house -> north_of_house [label=" north"];
+    west_of_house -> south_of_house [label=" south"];
+    west_of_house -> forest_i [label=" west"];
+
+    north_of_house -> behind_house [label=" east"];
+    north_of_house -> west_of_house [label=" west"];
+
+    behind_house -> south_of_house [label=" south"];
+    behind_house -> north_of_house [label=" north"];
+
+    south_of_house -> west_of_house [label=" west"];
+    south_of_house -> behind_house [label=" east"];
+
+    forest_i -> forest_i [label=" north"];
+    forest_i -> forest_ii [label=" east"];
+    forest_i -> forest_iii [label=" south"];
+
+    forest_ii -> up_a_tree [label=" up"];
+    forest_ii -> north_of_house [label=" west"];
+
+    up_a_tree -> forest_ii [label=" down"];
+
+    forest_iii -> south_of_house [label=" north"];
+    forest_iii -> clearing [label=" east"];
+    forest_iii -> forest_iv [label=" south"];
+
+    clearing -> clearing [label=" north"];
+    clearing -> forest_iii [label=" south"];
+
+    forest_iv -> canyon_view [label=" east"];
+    forest_iv -> forest_iii [label=" west"];
+    forest_iv -> forest_v [label=" north"];
+    
+    canyon_view -> forest_iv [label=" south"];
+    canyon_view -> forest_v [label=" west"];
+
+    forest_v -> canyon_view [label=" southeast"];
+    forest_v -> forest_vi [label=" south"];
 }
