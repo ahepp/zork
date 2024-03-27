@@ -55,6 +55,7 @@ digraph zork {
 
     cellar -> west_of_chasm [label=" south"];
     cellar -> troll_room [label=" east"];
+    cellar -> living_room [label=" up"];
 
     west_of_chasm -> gallery [label=" south"];
     west_of_chasm -> cellar [label=" west"];
@@ -238,6 +239,12 @@ digraph zork {
 
     dome_room -> rocky_crawl [label=" east"];
     dome_room -> torch_room [label=" down (rope)"];
+
+    torch_room -> dome_room [label=" up"];
+    torch_room -> tiny_room [label=" west"];
+    torch_room -> north_south_crawlway [label=" down"];
+
+    tiny_room -> torch_room [label=" east"];
 
     dam_lobby -> maintenance_room [label=" north, east"];
     dam_lobby -> dam [label=" south"];
